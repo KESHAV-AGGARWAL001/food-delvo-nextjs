@@ -1,22 +1,30 @@
 "use client";
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
+import Footer from "@/components/Footer";
 import ExploreMenu from "@/components/ExploreMenu";
 import FoodDisplay from "@/components/FoodDisplay";
-import Footer from "@/components/Footer";
-import "./page.css";
+import "./Menu.css";
+
+interface FoodItem {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+  category: string;
+  rating: number;
+}
 
 const sampleFoods = [
   {
     id: "1",
-    name: "Classic Burger",
-    description:
-      "Juicy beef patty with fresh lettuce, tomatoes, and our special sauce",
+    name: "Classic Salad",
+    description: "Juicy fresh cucumber , tomatoes, and our special sauce",
     price: 12.99,
     image: "/food/food_1.png",
-    category: "burgers",
+    category: "salads",
     rating: 4.5,
   },
   {
@@ -312,34 +320,82 @@ const sampleFoods = [
   },
 ];
 
-export default function Home() {
+function filterFoodsByCategory(foods: FoodItem[], category: string) {
+  if (category === "all") return foods;
+  return foods.filter(
+    (food) => food.category.toLowerCase() === category.toLowerCase()
+  );
+}
+
+export default function Menu() {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredFoods, setFilteredFoods] = useState(sampleFoods);
+
+  useEffect(() => {
+    const filtered = sampleFoods.filter((food) =>
+      food.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    const categoryFiltered = filterFoodsByCategory(filtered, selectedCategory);
+    setFilteredFoods(categoryFiltered);
+  }, [searchQuery, selectedCategory]);
 
   return (
-    <main>
+    <>
       <Navbar />
-      <Hero />
-      <section className="menu-section">
-        <div className="menu-container">
-          <div className="menu-header">
-            <h2 className="menu-title">Our Menu</h2>
-            <p className="menu-description">
-              Choose from our selection of delicious meals
-            </p>
-          </div>
-          <ExploreMenu
-            selectedCategory={selectedCategory}
-            onCategoryChange={setSelectedCategory}
-          />
-          <div className="menu-content">
+      <main className="menu-page">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="menu-hero"
+        >
+          <h1>Our Menu</h1>
+          <p>Discover our delicious selection of meals prepared with love</p>
+        </motion.div>
+
+        <section className="menu-filters-section">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="menu-container"
+          >
+            <ExploreMenu
+              selectedCategory={selectedCategory}
+              onCategoryChange={setSelectedCategory}
+            />
+          </motion.div>
+        </section>
+
+        <section className="menu-items-section">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="menu-grid-container"
+          >
+            <div className="search-input-container">
+              <input
+                type="text"
+                placeholder="Search for food..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="search-input"
+              />
+            </div>
             <FoodDisplay
-              foods={sampleFoods}
+              foods={filteredFoods}
               selectedCategory={selectedCategory}
             />
-          </div>
-        </div>
-      </section>
+
+            {filteredFoods.length === 0 && (
+              <div className="no-food-found">No Such food found</div>
+            )}
+          </motion.div>
+        </section>
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

@@ -1,0 +1,36 @@
+services:
+  app:
+    build:
+      context: .
+    image: food-delvo
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_TELEMETRY_DISABLED: 1
+      NODE_ENV: development
+      MONGODB_URI: mongodb+srv://aggarwalkeshav001:y7AO8I4h0toKqRkT@cluster0.3mzil.mongodb.net/food-development?retryWrites=true&w=majority&appName=Cluster0
+      JWT_SECRET: ndaasjdhoaghidknewfu32irn3o4inrff3i4rjt568indajsdbivenre
+      STRIPE_SECRET_KEY: sk_test_51R3IEI4FnoHSCpt0j2FVKGLLaahCM6lgynzY5CiaTZcCZ9JC9cI8pk3aKukYk9VIK56voqpqPWO7YRFcYIrLJ7qq00AD9x61zO
+      NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY: pk_test_51R3IEI4FnoHSCpt0Y05FAK64cJYOz3TCsnzKM8AwLn6tZQNVqvEiHsblrEjyV9ywDMEMfWD0tb2ZeynmXoAHlnFw00w2UIlKEr
+    develop:
+      watch:
+        - action: sync
+          path: ./src
+          target: /app/src
+          ignore:
+            - node_modules/
+        - action: rebuild
+          path: package.json
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

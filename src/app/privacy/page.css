@@ -1,0 +1,152 @@
+/* Global Variables */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --primary-color: #3b82f6;
+  --primary-hover: #2563eb;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-secondary);
+}
+
+.container {
+  width: 100vw;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.privacy-page {
+  padding: 0 0;
+  background-color: var(--bg-secondary);
+}
+
+.privacy-container {
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: var(--bg-primary);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-sm);
+  padding: 4rem;
+}
+
+.privacy-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.privacy-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.privacy-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.privacy-section {
+  margin-bottom: 2.5rem;
+}
+
+.privacy-section:last-child {
+  margin-bottom: 0;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.section-content {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.section-content p {
+  margin-bottom: 1rem;
+}
+
+.section-content p:last-child {
+  margin-bottom: 0;
+}
+
+.section-content ul,
+.section-content ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.section-content li {
+  margin-bottom: 0.5rem;
+}
+
+.section-content li:last-child {
+  margin-bottom: 0;
+}
+
+.section-content a {
+  color: var(--primary-color);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.section-content a:hover {
+  color: var(--primary-hover);
+}
+
+.section-content strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.section-content blockquote {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-left: 4px solid var(--primary-color);
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.section-content code {
+  font-family: monospace;
+  background-color: var(--bg-secondary);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.contact-info {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.contact-text {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.contact-email {
+  color: var(--primary-color);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.contact-email:hover {
+  color: var(--primary-hover);
+}
