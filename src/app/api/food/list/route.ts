@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import connectMongo from "../../../../lib/db";
-import { Food, IFood } from "@/lib/models/Food";
+import { Food, IFood } from "../../../../lib/models/Food";
 
 export async function GET(): Promise<NextResponse> {
   try {

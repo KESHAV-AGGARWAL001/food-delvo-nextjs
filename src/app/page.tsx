@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import ExploreMenu from "@/components/ExploreMenu";
-import FoodDisplay from "@/components/FoodDisplay";
-import Footer from "@/components/Footer";
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import ExploreMenu from "../components/ExploreMenu";
+import FoodDisplay from "../components/FoodDisplay";
+import Footer from "../components/Footer";
 import "./page.css";
 
 const sampleFoods = [

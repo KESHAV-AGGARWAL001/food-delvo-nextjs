@@ -1,5 +1,5 @@
-import { AuthProvider } from "@/context/AuthContext";
-import { CartProvider } from "@/context/CartContext";
+import { AuthProvider } from "../context/AuthContext";
+import { CartProvider } from "../context/CartContext";
 import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
