@@ -11,10 +11,17 @@ interface CartItem {
   image: string;
 }
 
-export async function GET(request: Request): Promise<NextResponse> {
+export interface JWTPayload {
+  userId: string;
+  role: string;
+}
+
+export type AuthResponse = NextResponse | { user: JWTPayload; status: number };
+
+export async function GET(request: Request): Promise<AuthResponse> {
   try {
     // Authenticate user
-    const authResponse: any = await authenticate(request);
+    const authResponse = (await authenticate(request)) as AuthResponse;
     if (authResponse?.status === 401) {
       return authResponse;
     }

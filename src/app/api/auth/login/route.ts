@@ -18,7 +18,7 @@ interface LoginRequest {
 
 export async function POST(request: Request): Promise<NextResponse> {
   try {
-    let { email, password }: LoginRequest = await request.json();
+    const { email, password }: LoginRequest = await request.json();
 
     console.log("login route :) ", email, password);
 

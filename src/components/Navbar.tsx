@@ -32,7 +32,7 @@ export default function Navbar() {
     if (getCookies == null) {
       return;
     }
-    var counting = 0;
+    let counting = 0;
     for (let index = 0; index < getCookies?.length!; index++) {
       const element = getCookies[index] as cartItem | null;
       counting += element?.quantity!;

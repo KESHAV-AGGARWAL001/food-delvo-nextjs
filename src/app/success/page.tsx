@@ -1,11 +1,11 @@
 "use client";
-import { useCart } from "../../context/CartContext";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { useCart } from "../../context/CartContext";
 import "./page.css";
 
 export default function SuccessPage() {
-  const { clearCart, cartItems } = useCart();
+  const { clearCart } = useCart();
 
   const createOrder = async () => {
     const dataSend = {

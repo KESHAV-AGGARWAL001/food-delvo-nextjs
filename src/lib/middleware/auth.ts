@@ -34,7 +34,7 @@ export async function authenticate(request: Request): Promise<AuthResponse> {
       configurable: true,
     });
 
-    return { user: decoded, status: 200 };
+    return NextResponse.json({ user: decoded, status: 200 });
   } catch (error) {
     return NextResponse.json({
       message: "Authentication failed",
