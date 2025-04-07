@@ -11,12 +11,12 @@ interface CartItem {
   image: string;
 }
 
-export interface JWTPayload {
+interface JWTPayload {
   userId: string;
   role: string;
 }
 
-export type AuthResponse = NextResponse | { user: JWTPayload; status: number };
+type AuthResponse = NextResponse | { user: JWTPayload; status: number };
 
 export async function GET(request: Request): Promise<AuthResponse> {
   try {
