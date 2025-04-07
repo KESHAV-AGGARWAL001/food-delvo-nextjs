@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { useCart } from "@/context/CartContext";
+import { useCart } from "./../context/CartContext";
 import { toast } from "react-hot-toast";
 import "./FoodDisplay.css";
 

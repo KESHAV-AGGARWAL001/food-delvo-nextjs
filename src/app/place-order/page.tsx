@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { useCart } from "@/context/CartContext";
-import { useAuth } from "@/context/AuthContext";
+import { useCart } from "../../context/CartContext";
+import { useAuth } from "../../context/AuthContext";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 import { loadStripe } from "@stripe/stripe-js";
-import { CartItem } from "@/context/CartContext";
+import { CartItem } from "../../context/CartContext";
 import "./page.css";
 
 const stripePromise = loadStripe(

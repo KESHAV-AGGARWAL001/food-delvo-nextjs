@@ -1,7 +1,7 @@
 "use client"; // Mark this as a Client Component because of Framer Motion
 
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import "./About.css";

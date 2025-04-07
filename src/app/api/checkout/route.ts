@@ -1,4 +1,4 @@
-import { CartItem } from "@/context/CartContext";
+import { CartItem } from "../../../context/CartContext";
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 

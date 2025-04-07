@@ -1,8 +1,11 @@
 import { NextResponse } from "next/server";
-import { authenticate, AuthenticatedRequest } from "@/lib/middleware/auth";
-import { isAdmin } from "@/lib/middleware/auth";
-import { Order, IOrder } from "@/lib/models/Order";
-import connectMongo from "@/lib/db";
+import {
+  authenticate,
+  AuthenticatedRequest,
+} from "../../../../lib/middleware/auth";
+import { isAdmin } from "../../../../lib/middleware/auth";
+import { Order, IOrder } from "../../../../lib/models/Order";
+import connectMongo from "../../../../lib/db";
 
 export async function GET(request: Request): Promise<NextResponse> {
   try {

@@ -1,8 +1,8 @@
 "use client";
 
-import Navbar from "@/components/Navbar";
-import { useAuth } from "@/context/AuthContext";
-import { useCart } from "@/context/CartContext";
+import Navbar from "../../components/Navbar";
+import { useAuth } from "../../context/AuthContext";
+import { useCart } from "../../context/CartContext";
 import Image from "next/image";
 import Link from "next/link";
 import "./page.css";

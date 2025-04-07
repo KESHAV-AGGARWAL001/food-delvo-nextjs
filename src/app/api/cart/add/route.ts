@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
-import { authenticate, AuthResponse } from "@/lib/middleware/auth";
-import { Food, IFood } from "@/lib/models/Food";
+import { authenticate } from "../../../../lib/middleware/auth";
+import { Food, IFood } from "../../../../lib/models/Food";
 import { cookies } from "next/headers";
-import connectMongo from "@/lib/db";
+import connectMongo from "../../../../lib/db";
 
 interface CartItem {
   foodId: string;

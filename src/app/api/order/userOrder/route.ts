@@ -1,6 +1,6 @@
-import connectMongo from "@/lib/db";
-import { authenticate } from "@/lib/middleware/auth";
-import { IOrder, Order } from "@/lib/models/Order";
+import connectMongo from "../../../../lib/db";
+import { authenticate } from "../../../../lib/middleware/auth";
+import { IOrder, Order } from "../../../../lib/models/Order";
 import { NextResponse } from "next/server";
 
 interface UserResponse {

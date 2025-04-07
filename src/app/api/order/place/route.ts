@@ -1,8 +1,11 @@
 import { NextResponse } from "next/server";
-import { authenticate, AuthenticatedRequest } from "@/lib/middleware/auth";
-import { Order, IOrder } from "@/lib/models/Order";
+import {
+  authenticate,
+  AuthenticatedRequest,
+} from "../../../../lib/middleware/auth";
+import { Order, IOrder } from "../../../../lib/models/Order";
 import { cookies } from "next/headers";
-import connectMongo from "@/lib/db";
+import connectMongo from "../../../../lib/db";
 
 interface OrderRequest {
   orderItems: Array<{

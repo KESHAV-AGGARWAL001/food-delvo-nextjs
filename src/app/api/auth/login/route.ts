@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
-import connectMongo from "@/lib/db";
-import { IUser, User } from "@/lib/models/User";
+import connectMongo from "../../../../lib/db";
+import { IUser, User } from "../../../../lib/models/User";
 
 const JWT_SECRET = process.env.JWT_SECRET as string;
 if (!JWT_SECRET) {

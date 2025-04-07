@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { toast } from "react-hot-toast";
 import "./page.css";
-import Navbar from "@/components/Navbar";
+import Navbar from "../../components/Navbar";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");

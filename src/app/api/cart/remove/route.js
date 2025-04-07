@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { authenticate } from "@/lib/middleware/auth";
+import { authenticate } from "../../../../lib/middleware/auth";
 
 export async function POST(request) {
     try {

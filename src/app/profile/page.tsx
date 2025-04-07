@@ -1,12 +1,12 @@
 "use client";
 
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import "./page.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 interface OrderItem {
   _id: string;

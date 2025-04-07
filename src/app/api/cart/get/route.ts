@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
-import dbConnect from "@/lib/config/dbConnect";
-import { authenticate } from "@/lib/middleware/auth";
+import connectMongo from "../../../../lib/db";
+import { authenticate } from "../../../../lib/middleware/auth";
 import { cookies } from "next/headers";
 
 interface CartItem {
@@ -14,15 +14,16 @@ interface CartItem {
 export async function GET(request: Request): Promise<NextResponse> {
   try {
     // Authenticate user
-    const authResponse = await authenticate(request);
+    const authResponse: any = await authenticate(request);
     if (authResponse?.status === 401) {
       return authResponse;
     }
 
-    await dbConnect();
+    await connectMongo();
 
     // Get cart data from cookies
-    const cartData = await cookies().get("cart")?.value || "[]";
+    const cookieStore = await cookies();
+    const cartData = cookieStore.get("cart")?.value || "[]";
     const cart = JSON.parse(cartData) as CartItem[];
     return NextResponse.json(cart);
   } catch (error) {

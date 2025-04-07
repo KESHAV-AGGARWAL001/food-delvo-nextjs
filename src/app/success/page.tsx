@@ -1,5 +1,5 @@
 "use client";
-import { useCart } from "@/context/CartContext";
+import { useCart } from "../../context/CartContext";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import "./page.css";

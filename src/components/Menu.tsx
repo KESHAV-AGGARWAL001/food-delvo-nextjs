@@ -1,10 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import ExploreMenu from "@/components/ExploreMenu";
-import FoodDisplay from "@/components/FoodDisplay";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import ExploreMenu from "./ExploreMenu";
+import FoodDisplay from "./FoodDisplay";
 import "./Menu.css";
 
 interface FoodItem {

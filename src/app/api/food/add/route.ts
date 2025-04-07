@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { Food, IFood } from "@/lib/models/Food";
-import { uploadFile } from "@/lib/utils/fileUpload";
-import connectMongo from "@/lib/db";
+import { Food, IFood } from "../../../../lib/models/Food";
+import { uploadFile } from "../../../../lib/utils/fileUpload";
+import connectMongo from "../../../../lib/db";
 
 export async function POST(request: Request): Promise<NextResponse> {
   try {

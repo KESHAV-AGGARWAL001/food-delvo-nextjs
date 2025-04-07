@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
-import dbConnect from "@/lib/config/dbConnect";
+import connectMongo from "../../../../lib/db";
 import { Food, IFood } from "@/lib/models/Food";
 
 export async function GET(): Promise<NextResponse> {
   try {
-    await dbConnect();
+    await connectMongo();
     const foods = (await Food.find({})) as IFood[];
     return NextResponse.json(foods);
   } catch (error) {

@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
-import connectMongo from "@/lib/db";
-import { User } from "@/lib/models/User";
+import connectMongo from "../../../../lib/db";
+import { User } from "../../../../lib/models/User";
 
 export async function GET() {
   try {
