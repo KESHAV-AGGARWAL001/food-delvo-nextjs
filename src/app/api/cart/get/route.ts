@@ -16,22 +16,23 @@ interface JWTPayload {
   role: string;
 }
 
-type AuthResponse = NextResponse | { user: JWTPayload; status: number };
-
-export async function GET(request: Request): Promise<AuthResponse> {
+export async function GET(request: Request): Promise<NextResponse> {
   try {
     // Authenticate user
-    const authResponse = (await authenticate(request)) as AuthResponse;
-    if (authResponse?.status === 401) {
-      return authResponse;
+    const authResponse = await authenticate(request);
+
+    // If authentication fails, return a 401 response
+    if ("status" in authResponse && authResponse.status === 401) {
+      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
     }
 
     await connectMongo();
 
     // Get cart data from cookies
-    const cookieStore = await cookies();
+    const cookieStore = await cookies(); // No need for await here
     const cartData = cookieStore.get("cart")?.value || "[]";
     const cart = JSON.parse(cartData) as CartItem[];
+
     return NextResponse.json(cart);
   } catch (error) {
     console.error("Error fetching cart:", error);
