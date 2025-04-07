@@ -11,11 +11,6 @@ interface CartItem {
   image: string;
 }
 
-interface JWTPayload {
-  userId: string;
-  role: string;
-}
-
 export async function GET(request: Request): Promise<NextResponse> {
   try {
     // Authenticate user
