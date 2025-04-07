@@ -28,16 +28,17 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const getCartItemsCount = () => {
-    const getCookies = JSON.parse(localStorage.getItem("cart") || "");
-    if (getCookies == null) {
-      return;
-    }
-    let counting = 0;
-    for (let index = 0; index < getCookies?.length!; index++) {
-      const element = getCookies[index] as cartItem | null;
-      counting += element?.quantity!;
-    }
-    setCartItemsCount(counting);
+    const storedCart = localStorage.getItem("cart");
+    if (!storedCart) return;
+
+    const cartData = JSON.parse(storedCart) as cartItem[];
+    if (!Array.isArray(cartData)) return;
+
+    const count = cartData.reduce(
+      (acc, item) => acc + (item?.quantity ?? 0),
+      0
+    );
+    setCartItemsCount(count);
   };
   useEffect(() => {
     getCartItemsCount();
