@@ -37,7 +37,7 @@ export default function SuccessPage() {
     localStorage.removeItem("email");
     localStorage.removeItem("user");
     localStorage.removeItem("cartItems");
-  }, []);
+  }, [clearCart]);
 
   const router = useRouter();
   return (

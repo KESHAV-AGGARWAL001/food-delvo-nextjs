@@ -49,7 +49,7 @@ export default function ProfilePage() {
     if (user) {
       fetchOrders();
     }
-  }, [isLoading]);
+  }, [isLoading, user, router]);
 
   const handleLogout = () => {
     try {
